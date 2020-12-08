@@ -69,11 +69,15 @@
             <!-- Col 2 - weather data -->
             <section id="weather-output" class="col-md-9 py-3">
                 <!-- Todays weather output -->
-                <section id="todays-weather" class="jumbotron border">
-                    <h1 class="display-4">Hello, world!</h1>
-                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <section id="todays-weather" class="jumbotron border mr-5">
+                    <h1 id="locale" class="display-4 text-right">Philadelphia</h1>
                     <hr class="my-4">
-                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                    <ul id="weather-info" class="list-group list-group-flush w-50">
+                        <li id="temp" class="list-group-item mt-3">Temp: </li>
+                        <li id="humidity" class="list-group-item mt-3">Humidity: </li>
+                        <li id ="wind-speed" class="list-group-item mt-3">Wind Speed: </li>
+                        <li id="uv-index" class="list-group-item mt-3">UV Index: </li>
+                    </ul>
                 </section>
                 <!-- Five day forecast section -->
                 <section id="five-day">

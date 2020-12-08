@@ -23,3 +23,12 @@ body {
 #searched-cities li:hover{
   cursor: pointer;
 }
+
+#locale {
+  font-size: calc(1.2em + 2vw);
+}
+
+.list-group-item {
+  background-color: transparent;
+
+}

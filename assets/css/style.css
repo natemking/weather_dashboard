@@ -16,7 +16,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-#title {
+#title, .card-title, .card-text {
     color: rgb(255, 255, 255);
 }
 
@@ -31,4 +31,8 @@ body {
 .list-group-item {
   background-color: transparent;
 
+}
+.jumbotron{
+  height: 60%;
+  padding: 20px;
 }

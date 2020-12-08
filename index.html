@@ -32,48 +32,60 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
+    <!-- Header -->
     <header class="navbar navbar-dark bg-dark justify-content-center">
         <h1 id="title" class="py-2">Weather Dashboard</h1>
     </header>
 
-<main class="container-fluid">
-    <section class="row my-3">
-        <section id="search-and-cities" class="col-md-3">
-            <h3>Search for a city:</h3>
-            <section id="city-search" class="input-group mb-3">
-                <input type="text" class="form-control" aria-label="city-search" aria-describedby="city-search">
-                <button class="btn btn-info" type="button" id="search-btn">
-                    <i class="fas fa-search"></i>
-                </button>
+    <!-- Main container for all elements -->
+    <main class="container-fluid">
+        <!-- Grid row for all elements -->
+        <section class="row my-3">
+            <!-- Column 1 - cites searched -->
+            <section id="search-and-locale" class="col-md-3">
+                <h3>Search for a locale:</h3>
+                <!-- Input for locale to search Input & button-->
+                <section id="locale-search" class="input-group mb-3">
+                    <!-- Input -->
+                    <input id="locale-input" type="text" class="form-control" aria-label="locale-search" aria-describedby="locale-search">
+                    <!-- Button -->
+                    <button id="search-btn" class="btn btn-info" type="button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </section>
+                <!-- Visited City List -->
+                <section class="card rounded" >
+                    <ul id="searched-locale" class="list-group list-group-flush">
+                        
+                    </ul>
+                </section>
             </section>
-            <section class="card rounded" style="width: 18rem;">
-                <ul id="visited-cities" class="list-group list-group-flush">
-                <li class="list-group-item" value="1"></li>
-                </ul>
-            </section>
-        </section>
-   
-        <section id="weather-output" class="col-md-9 py-3">
-            <section id="todays-weather" class="jumbotron border">
-                <h1 class="display-4">Hello, world!</h1>
-                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                <hr class="my-4">
-                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            </section>
-            <section id="five-day">
-                <section class="card" style="width: 18rem;">
-                    <section class="card-body rounded bg-info">
-                    <h5 class="card-title">Card title</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+            
+            <!-- Col 2 - weather data -->
+            <section id="weather-output" class="col-md-9 py-3">
+                <!-- Todays weather output -->
+                <section id="todays-weather" class="jumbotron border">
+                    <h1 class="display-4">Hello, world!</h1>
+                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                    <hr class="my-4">
+                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                </section>
+                <!-- Five day forecast section -->
+                <section id="five-day">
+                    <!-- Day forecast card -->
+                    <section class="card" style="width: 18rem;">
+                        <section class="card-body rounded bg-info">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                        </section>
                     </section>
                 </section>
             </section>
         </section>
-    </section>
-</main>
+    </main>
 
     <!-- JavaScript -->
     <!-- jQuery library -->

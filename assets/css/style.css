@@ -20,6 +20,11 @@ body {
     color: rgb(255, 255, 255);
 }
 
+#search-and-locale p {
+  font-weight: 600;
+  font-style: italic;
+}
+
 #searched-cities li:hover{
   cursor: pointer;
 }

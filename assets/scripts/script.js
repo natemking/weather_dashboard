@@ -33,6 +33,43 @@ $(document).ready(function (){
         $('<li>').addClass('list-group-item').text(locale).appendTo('#searched-locale');
         //clear input value after search
         $('#locale-input').val('');
+
+        //Lat & Lon API Query
+
+        mapURL =`http://api.positionstack.com/v1/forward?access_key=96c3c43382905355dcc4f168fc3b027f&query=${locale}`
+        
+        
+        $.ajax({
+            url: mapURL,
+            method: 'GET'
+        }).then(function(res){
+            
+            let lat = (res.data[0].latitude);
+            let lon = (res.data[0].longitude);
+            
+            weatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=b10aa733a604bec365209fb6e0c6574c`;
+             $.ajax({
+            url: weatherURL,
+            method: 'GET'
+        }).then(function(res){
+            $
+        })
+        })
+
+        // console.log(latLon);
+        //Retrieve weather data
+
+        
+        
+        
+        // $.ajax({
+        //     url: weatherURL,
+        //     method: 'GET'
+        // }).then(function(res){
+        //     console.log(res)
+        // })
+        
+
     });
 
     //Clear local storage button
@@ -42,27 +79,12 @@ $(document).ready(function (){
     })
 
 
-    function weatherBalloon( cityID ) {
-        var key = 'b10aa733a604bec365209fb6e0c6574c';
-        fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID+ '&appid=' + key)  
-        .then(function(resp) { return resp.json() }) // Convert data to json
-        .then(function(data) {
-          console.log(data);
-        })
-        .catch(function() {
-          // catch any errors
-        });
-      }
-      
-      window.onload = function() {
-        weatherBalloon( 6167865 );
-      }
 
-      let writeWeather = () => {
-        var celcius = Math.round(parseFloat(d.main.temp)-273.15);
-        var fahrenheit = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32); 
 
-      }
+    //   let writeWeather = () => {
+    //     var celcius = Math.round(parseFloat(d.main.temp)-273.15);
+    //     var fahrenheit = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32); 
+    //   }
 
     // Saving for later 
     // $('#searched-Locale li').on('click', function(){
@@ -73,6 +95,5 @@ $(document).ready(function (){
    
 
     
-
 
 });

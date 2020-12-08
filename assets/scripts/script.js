@@ -33,6 +33,12 @@ $(document).ready(function (){
         
     });
 
+    //Clear local storage button
+    $('#clear-btn').on('click', function(){
+        localStorage.clear();
+        $('#searched-locale').empty();
+    })
+
 
     // Saving for later 
     // $('#searched-Locale li').on('click', function(){

@@ -68,4 +68,6 @@ _day change_
 https://stackoverflow.com/questions/19508183/how-to-force-input-to-only-allow-alpha-letters
 
 * [Converting from unix time] (https://www.codegrepper.com/code-examples/delphi/jquery+convert+unix+timestamp+to+date)
+
+* [Display OpenWeather Icon](https://stackoverflow.com/questions/44177417/how-to-display-openweathermap-weather-icon)
 * -->

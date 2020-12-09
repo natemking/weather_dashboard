@@ -40,9 +40,10 @@ $(document).ready(function (){
         url: weatherURL,
         method: 'GET'
         }).then(function(res){
-            console.log(res);
+            console.log(res); 
+            
             //Write Location to jumbotron heading
-            $('#locale').text(map.data[0].label);
+            $('#locale').html(`<img src=http://openweathermap.org/img/wn/${res.current.weather[0].icon}@2x.png>${map.data[0].label}`);
             //Write temp to jumbotron body
             $('#temp').text(`Temp: ${res.current.temp} \u00B0F`);
             //Write humidity to jumbotron body
@@ -56,8 +57,10 @@ $(document).ready(function (){
                 $('#uv-num').css('background-color', 'red')
             }
 
+            
             //*** Create 5 day forecast cards ***//
             const dealCards = () =>{
+                
                 //Create the card clone
                 const $clone = $('.card-template').clone();
                 //For loop to create all 5 cards for forecast
@@ -71,7 +74,7 @@ $(document).ready(function (){
                     //Create a <h5> for Date. Pull from OpenWeather API and convert from Unix time then append to the card.
                     $('<h5>').attr('id', `card-date-${i}`).text(new Date(res.daily[i].dt * 1000).toLocaleDateString("en-US")).appendTo(`#card-${i}`);
                     //Create <h6> for weather icon. Pull from OpenWeather API and append to the card.
-                    $('<h6>').attr('id', `card-icon-${i}`).text('#').appendTo(`#card-${i}`);
+                    $('<h6>').attr('id', `card-icon-${i}`).html(`<img src=http://openweathermap.org/img/wn/${res.current.weather[0].icon}.png>`).appendTo(`#card-${i}`);
                     //Create <p> for temp. Pull from OpenWeather API and append to the card.
                     $('<p>').attr('id', `card-temp-${i}`).text(`Temp: ${res.daily[i].temp.day} \u00B0F`).appendTo(`#card-${i}`);
                     //Create <p> for humidity. Pull from OpenWeather API and append to the card.
@@ -92,6 +95,7 @@ $(document).ready(function (){
         $('#searched-locale li').click(function(){
         $locale = $(this).text();
         console.log($locale);
+       
         callAPI($locale);
     })
     }

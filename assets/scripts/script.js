@@ -68,31 +68,41 @@ $(document).ready(function (){
                 $('#wind-speed').text(`Wind Speed: ${res.current.wind_speed} MPH`);
                 $('#uv-index').text(`UV Index: ${res.current.uvi}`);
 
-
                 
-
+                //*** Create 5 day forecast cards ***//
                 const dealCards = () =>{
+                    //Create the card clone
                     const $clone = $('.card-template').clone();
-                    console.log('run')
+                    //For loop to create all 5 cards for forecast
                     for(let i = 1; i < 6; i++){
+                        //create the clone for the lop
                         const $copy = $clone.clone();
+                        //set the id for all the cards
                         $copy.attr('id', `card-${i}`);
+                        //Append the clones to the container
+                        $($copy).appendTo('#card-deck');
+                        //Create a <h5> for Date. Pull from OpenWeather API and convert from Unix time then append to the card.
+                        $('<h5>').attr('id', `card-date-${i}`).text(new Date(res.daily[i].dt * 1000).toLocaleDateString("en-US")).appendTo(`#card-${i}`);
+                        //Create <h6> for weather icon. Pull from OpenWeather API and append to the card.
+                        $('<h6>').attr('id', `card-icon-${i}`).text('#').appendTo(`#card-${i}`);
+                        //Create <p> for temp. Pull from OpenWeather API and append to the card.
+                        $('<p>').attr('id', `card-temp-${i}`).text(`Temp: ${res.daily[i].temp.day} \u00B0F`).appendTo(`#card-${i}`);
+                        //Create <p> for humidity. Pull from OpenWeather API and append to the card.
+                        $('<p>').attr('id', `card-humidity-${i}`).text(`Humidity: ${res.daily[i].humidity}\u0025`).appendTo(`#card-${i}`);
+                        //Make the clones appear
                         $copy.css('display', 'block');
+                        //Make the heading for the container appear
                         $('#five-day-heading').css('display', 'block');
-                        $($copy).appendTo('#card-deck')
-
+                       
 
                         
-                        $(`#card-${i} h5`).text(new Date(res.daily[i].dt * 1000).toLocaleDateString("en-US"))
-                        $('#card-temp').attr('id', `card-temp-${i}`)
 
-                        $('#card-humidity').attr('id', `card-humidify-${i}`)
                         
-            
+                    
                     }
                 }           
                 dealCards();
-                
+                console.log(res.daily[6].temp.day);
             });
         });
        

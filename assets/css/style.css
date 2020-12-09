@@ -16,9 +16,10 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+
 #title, .card-title, .card-text {
-    color: rgb(255, 255, 255);
-}
+  color: rgb(255, 255, 255);
+} 
 
 #search-and-locale p {
   font-weight: 600;
@@ -31,6 +32,7 @@ body {
 
 #locale {
   font-size: calc(1.2em + 2vw);
+  border-bottom: rgb(255, 255, 255) 1px;
 }
 
 .list-group-item {
@@ -41,7 +43,7 @@ body {
 .jumbotron{
   height: 60%;
   padding: 20px;
-  background-color: #343a40;
+  background-color: rgb(52, 58, 64);
   color: rgb(255, 255, 255);
   border-radius: 10px;
   font-size: 20px;
@@ -60,6 +62,7 @@ body {
 #five-day-heading, .card-template{
   display: none;
 }
+
 
 
 

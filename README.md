@@ -58,6 +58,12 @@ _day change_
 
 * [day.js](https://day.js.org/)
 
+* [GeoCod API from PositionStack](https://positionstack.com/)
+
+* [Weather API from OpenWeatherMap](https://openweathermap.org/)
+
 * [Get value of list item](https://stackoverflow.com/questions/5548827/get-value-of-list-item-with-jqueryp)
 
+[Get input field to accpet only numbers]
+https://stackoverflow.com/questions/19508183/how-to-force-input-to-only-allow-alpha-letters
 * -->

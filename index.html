@@ -47,7 +47,7 @@
                 <!-- Input for locale to search Input & button-->
                 <section id="locale-search" class="input-group mb-3">
                     <!-- Input -->
-                    <input id="locale-input" type="text" class="form-control" aria-label="locale-search" aria-describedby="locale-search">
+                    <input onkeypress="return /[a-z_ ]/i.test(event.key)" id="locale-input" type="text" class="form-control"   aria-label="locale-search" aria-describedby="locale-search">
                     <!-- Button -->
                     <button id="search-btn" class="btn btn-info" type="button">
                         <i class="fas fa-search"></i>
@@ -70,10 +70,10 @@
             <section id="weather-output" class="col-md-9 py-3 ">
                 <!-- Todays weather output -->
                 <section id="todays-weather" class="jumbotron border mr-md-5">
-                    <h1 id="locale" class="display-4 text-right">Philadelphia</h1>
+                    <h1 id="locale" class="display-4 text-right">Todays Weather</h1>
                     <hr class="my-4">
                         <!-- Weather info -->
-                        <ul id="weather-info" class="list-group list-group-flush w-50 ">
+                        <ul id="weather-info" class="list-group list-group-flush w-md-50 ">
                             <li id="temp" class="list-group-item mt-3 pl-0 pl-md-4">Temp: </li>
                             <li id="humidity" class="list-group-item mt-3 pl-0 pl-md-4">Humidity: </li>
                             <li id ="wind-speed" class="list-group-item mt-3 pl-0 pl-md-4">Wind Speed: </li>

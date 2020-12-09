@@ -38,7 +38,6 @@ $(document).ready(function (){
 
         mapURL =`http://api.positionstack.com/v1/forward?access_key=96c3c43382905355dcc4f168fc3b027f&query=${locale}`
         
-        
         $.ajax({
             url: mapURL,
             method: 'GET'
@@ -47,16 +46,21 @@ $(document).ready(function (){
             let lat = (res.data[0].latitude);
             let lon = (res.data[0].longitude);
             
+            $('#locale').text(res.data[0].label);
+           
             weatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=b10aa733a604bec365209fb6e0c6574c`;
              $.ajax({
             url: weatherURL,
             method: 'GET'
         }).then(function(res){
-            $
-        })
-        })
+            console.log(res);
+            $('#temp').text(`Temp: ${res.current.temp} \u00B0F`);
+            $('#humidity').text(`Humidity: ${res.current.humidity}\u0025`);
+            $('#wind-speed').text(`Wind Speed: ${res.current.wind_speed} MPH`);
+            
 
-        // console.log(latLon);
+        })
+        })
         //Retrieve weather data
 
         
@@ -76,6 +80,8 @@ $(document).ready(function (){
     $('#clear-btn').on('click', function(){
         localStorage.clear();
         $('#searched-locale').empty();
+        location.reload();
+        
     })
 
 

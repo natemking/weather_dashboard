@@ -1,36 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- BootStrap CDN -->
-    <link 
-    rel="stylesheet" 
-    href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"
-    />
-    <!-- FontAwesome 5.8.1 CDN -->
-    <!-- <link 
-    rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
-    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" 
-    /> -->
-    <!-- FontAwesome
-    <script src="https://kit.fontawesome.com/98b94be1e4.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
     <!-- Google Fonts -->
-    <link 
-    rel="preconnect" 
-    href="https://fonts.gstatic.com"
-    />
-    <link 
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" 
-    rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet" />
     <!-- Local CSS -->
-    <link 
-      rel="stylesheet" href="./assets/css/style.css" 
-    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weather Dashboard</title>
 </head>
+
 <body>
     <!-- Header -->
     <header class="navbar navbar-dark bg-dark justify-content-center">
@@ -46,15 +33,16 @@
                 <p class="mb-0">Search for a city:</p>
                 <!-- Input for locale to search Input & button-->
                 <section id="locale-search" class="input-group mb-3">
-                    <!-- Input -->
-                    <input onkeypress="return /[a-z_ ]/i.test(event.key)" id="locale-input" type="text" class="form-control"   aria-label="locale-search" aria-describedby="locale-search">
-                    <!-- Button -->
+                    <!-- Input  only  letters and spaces allowed as characters-->
+                    <input onkeypress="return /[a-z_ ]/i.test(event.key)" id="locale-input" type="text"
+                        class="form-control" aria-label="locale-search" aria-describedby="locale-search">
+                    <!-- Search button -->
                     <button id="search-btn" class="btn btn-info" type="button">
                         <i class="fas fa-search"></i>
                     </button>
                 </section>
-                <!-- Visited City List -->
-                <section class="card rounded" >
+                <!-- Searched locales list -->
+                <section class="card rounded">
                     <ul id="searched-locale" class="list-group list-group-flush">
                     </ul>
                 </section>
@@ -65,21 +53,21 @@
                     </button>
                 </section>
             </section>
-            
-            <!-- Col 2 - weather data -->
+
+            <!-- Column 2 - weather data -->
             <section id="weather-output" class="col-md-9 py-3 ">
                 <!-- Todays weather output -->
                 <section id="todays-weather" class="jumbotron border mr-md-5">
                     <h1 id="locale" class="display-4 text-right">Todays Weather</h1>
-                    <!-- <hr class="my-4"> -->
-                        <!-- Weather info -->
-                        <ul id="weather-info" class="list-group list-group-flush mt-0 w-md-50 ">
-                            <li id="temp" class="list-group-item mt-3 pl-0 pl-md-4">Temp: </li>
-                            <li id="humidity" class="list-group-item mt-3 pl-0 pl-md-4">Humidity: </li>
-                            <li id="feels-like" class="list-group-item mt-3 pl-0 pl-md-4">Feels Like: </li>
-                            <li id ="wind-speed" class="list-group-item mt-3 pl-0 pl-md-4">Wind Speed: </li>
-                            <li id="uv-index" class="list-group-item my-3 pl-0 pl-md-4">UV Index: </li>
-                        </ul>
+                    <hr class="my-4">
+                    <!-- Weather info -->
+                    <ul id="weather-info" class="list-group list-group-flush mt-0 w-md-50 ">
+                        <li id="temp" class="list-group-item mt-3 pl-0 pl-md-4">Temp: </li>
+                        <li id="humidity" class="list-group-item mt-3 pl-0 pl-md-4">Humidity: </li>
+                        <li id="feels-like" class="list-group-item mt-3 pl-0 pl-md-4">Feels Like: </li>
+                        <li id="wind-speed" class="list-group-item mt-3 pl-0 pl-md-4">Wind Speed: </li>
+                        <li id="uv-index" class="list-group-item my-3 pl-0 pl-md-4">UV Index: </li>
+                    </ul>
                 </section>
                 <!-- Five day forecast section -->
                 <section id="five-day">
@@ -87,7 +75,7 @@
                     <!-- 5 Day forecast card container-->
                     <section id="card-deck" class="d-inline-flex flex-row">
                         <!-- Card template - cloned via jQuery -->
-                        <section  class="card-body rounded bg-info card-template ml-2" style="width: 12rem;">
+                        <section class="card-body rounded bg-info card-template ml-2" style="width: 12rem;">
                         </section>
                     </section>
                 </section>
@@ -98,11 +86,11 @@
     <!-- JavaScript -->
     <!-- jQuery library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Day JS library  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.9.7/dayjs.min.js" integrity="sha512-kZ+x2gdehn6OZMWZSp3Vt5R+v9hQTYEATQwaUfWquhxbvNVAy6IRtYs7asdyxKUTqG0I5ZqBqnzcBrpnHJCAGw==" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/98b94be1e4.js" crossorigin="anonymous"></script> 
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/98b94be1e4.js" crossorigin="anonymous"></script>
     <!-- Local JS -->
     <script src="./assets/scripts/script.js"></script>
 
 </body>
+
 </html>

@@ -1,3 +1,4 @@
+/* Global */
 *,
 *::before,
 *::after {
@@ -5,7 +6,7 @@
 }
 
 html,
-body,{
+body{
   height: 100%;
   margin: 0;
   padding: 0;
@@ -16,11 +17,13 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-
+/* Header */
 #title, .card-title, .card-text {
   color: rgb(255, 255, 255);
 } 
 
+/* Main */
+/* Search section */
 #search-and-locale p {
   font-weight: 600;
   font-style: italic;
@@ -40,6 +43,7 @@ body {
 
 }
 
+/* Jumbotron */
 .jumbotron{
   height: 65%;
   padding: 20px;
@@ -55,6 +59,7 @@ body {
   color: rgb(255, 255, 255);
 }
 
+/* 5 day forecast cards */
 #card-deck {
   height: 200px;
 }

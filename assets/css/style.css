@@ -31,7 +31,7 @@ body {
 }
 
 #locale {
-  font-size: calc(1.2em + 2vw);
+  font-size: calc(0.9em + 1vw);
   border-bottom: rgb(255, 255, 255) 1px;
 }
 
@@ -41,7 +41,7 @@ body {
 }
 
 .jumbotron{
-  height: 60%;
+  height: 65%;
   padding: 20px;
   background-color: rgb(52, 58, 64);
   color: rgb(255, 255, 255);

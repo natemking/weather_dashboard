@@ -41,3 +41,12 @@ body {
   height: 60%;
   padding: 20px;
 }
+
+#card-deck {
+  height: 200px;
+}
+
+#five-day-heading, .card-template{
+  display: none;
+}
+

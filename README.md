@@ -64,6 +64,8 @@ _day change_
 
 * [Get value of list item](https://stackoverflow.com/questions/5548827/get-value-of-list-item-with-jqueryp)
 
-[Get input field to accpet only numbers]
+* [Get input field to accept only numbers]
 https://stackoverflow.com/questions/19508183/how-to-force-input-to-only-allow-alpha-letters
+
+* [Converting from unix time] (https://www.codegrepper.com/code-examples/delphi/jquery+convert+unix+timestamp+to+date)
 * -->

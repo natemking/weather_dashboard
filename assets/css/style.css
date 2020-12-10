@@ -70,5 +70,29 @@ body {
 }
 
 
+/*** Media Queries ***/
+/*-------------------*/
+@media (max-width: 500px) {
+  .jumbotron {
+    height: 32%;
+  }
 
+  #locale img {
+    width: 30%;
+    height: auto;
+  }
 
+  #five-day{
+    text-align: center;
+  }
+
+  #card-deck{
+    height: 100%; 
+  }
+
+  .card-template { 
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;  
+  }
+}

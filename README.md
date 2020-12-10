@@ -16,13 +16,20 @@ http://www.natemking.dev/weather_dashboard/
 ## Description
 ---
 ### Scope of Work
-The task was to design a fully functional weather dashboard that utilizes API's to pull the data in and display on a simple and clean dahboard. When a user enters a city they are able to hit the seach button that not only displays data for today but also a five day forcast. Addtionally, the locations are saved in a list under the search bar that the user can easily click on a respective lcation to search again. 
+The task was to design a fully functional weather dashboard that utilizes APIs to pull the data in and display it on a simple and clean GUI. When a user enters a city they are able to hit the search button that not only displays data for the current day but also a five-day forecast. Additionally, the locations are saved in a list under the search bar that the user can easily click on a respective location to search again. Lastly, the user is to be given the last searched for location on page load. 
 
 ### HTML and CSS
-   
+The bones of the site is a simple BootStrap setup. Very minimal styling went into this design. The basic layout is achieved by utilizing the BootStrap grid system. The weather output is a simple BootStrap jumbotron and the five-day forecast is achieved by using cards. One per day. These cards all come into play dynamically via jQuery. 
 
 ### JavaScript Functionality
+When the page initializes the first piece is the local storage is retrieved and if there is no local storage nothing is displayed. If there are previously visited locations in local storage, not only are they displayed in a list under the search bar, the last searched for location in that list has its weather data displayed. 
 
+When a user inputs a city to search and initiates the search the location is added to the local storage array and the location is sent to the Nominatim geocoding API to retrieve that location's latitude and longitudinal coordinates. Once the coordinates are retrieved from the geocoded object they are then sent to the OpenWeatherMap API. Once the data comes back the information that is needed is appended to its respective HTML elements. It is at this time that the five-day forecast cards are created dynamically via the jQuery `cone()` method and they are loaded with their respective data. I choose to let jQuery do the work here vs. using HTML to not only keep the HTML cleaner but to allow the number of days forecasted to be easily scaled up by just editing the for loop. Not only is basic weather data pulled into the dashboard, but their icons are as well. This gives the user a better visual reading of what the weather is. Also, the UV index is color-coded depending on the danger scale. 
+
+Once there are saved locations in the previously searched for list, they are all active buttons. Not actual button elements but clicking on a location name with re-initiate the `callAPIs()` function and re-display all of that info. 
+
+Lastly, a button was added to allow the user to clear their search history. This button deletes what is in their local storage and refreshes the page allowing them to start over and clean up their search list.
+ 
 
 ---
 

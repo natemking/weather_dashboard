@@ -33,7 +33,7 @@ $(document).ready(function (){
                 if ('city' in map[0].address){
                     $('#locale').html(`<img src=http://openweathermap.org/img/wn/${res.current.weather[0].icon}@2x.png>${map[0].address.city}, ${map[0].address.state}`);
                 }else{
-                    $('#locale').html(`<img src=http://openweathermap.org/img/wn/${res.current.weather[0].icon}@2x.png>${map[0].address.state}, ${map[0].address.country}`);
+                    $('#locale').html(`<img src=http://openweathermap.org/img/wn/${res.current.weather[0].icon}@2x.png >${map[0].address.state}, ${map[0].address.country}`);
                 }
                 //Write temp to jumbotron body
                 $('#temp').text(`Temp: ${res.current.temp} \u00B0F`);
@@ -46,7 +46,7 @@ $(document).ready(function (){
                 //Write wind speed to the jumbotron body
                 $('#uv-index').html(`UV Index: <span id="uv-num">${res.current.uvi}</span>`);
                 //Colors the UV index dep[ending on its safety
-                if ($('#uv-num').val() < 7){
+                if ($('#uv-num').text() < 7){
                     $('#uv-num').css('background-color', 'green');
                 }else{
                     $('#uv-num').css('background-color', 'red');
@@ -100,7 +100,7 @@ $(document).ready(function (){
             });
         });
     }
-    
+
     //On page load displays the last searched for locale
     if (getLocale.length !== 0){
     callAPI(getLocale[getLocale.length-1]);

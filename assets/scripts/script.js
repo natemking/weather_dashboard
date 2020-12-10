@@ -14,27 +14,25 @@ $(document).ready(function (){
     //-----------------//
     //Function to call the APIs & append elements/data to the DOM. PositionStack is called to get the locales lat and long coords. They are then used in OpenWeather's API to get weather data.//
     let callAPI = ($locale) => {
-        console.log('i hate' + $locale)
-        //PositionStack API
-        mapURL =`https://api.positionstack.com/v1/forward?access_key=96c3c43382905355dcc4f168fc3b027f&query=${$locale}`
+        //Nominatim API
+        let mapURL = `https://nominatim.openstreetmap.org/search?q=${$locale}&format=json&addressdetails=1&limit=1`
         $.ajax({
             url: mapURL,
             method: 'GET'
         }).then(function(map){
+            console.log(map);
             //Gets lat and long data from Position Stack API pull
-            let lat = (map.data[0].latitude);
-            let lon = (map.data[0].longitude);
-
+            let lat = (map[0].lat);
+            let lon = (map[0].lon);
             //OpenWeatherMap API 
             weatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=b10aa733a604bec365209fb6e0c6574c`;
             $.ajax({
             url: weatherURL,
             method: 'GET'
             }).then(function(res){
-                console.log(res); 
-
+    
                 //Write Location to jumbotron heading
-                $('#locale').html(`<img src=http://openweathermap.org/img/wn/${res.current.weather[0].icon}@2x.png>${map.data[0].label}`);
+                $('#locale').html(`<img src=http://openweathermap.org/img/wn/${res.current.weather[0].icon}@2x.png>${map[0].address.city}, ${map[0].address.state}`);
                 //Write temp to jumbotron body
                 $('#temp').text(`Temp: ${res.current.temp} \u00B0F`);
                 //Write humidity to jumbotron body

@@ -1,4 +1,4 @@
-# weather_dashboard
+# Weather Dashboard
 Homework #06 Server-Side APIs: Weather Dashboard
 
 http://www.natemking.dev/weather_dashboard/
@@ -24,7 +24,7 @@ The bones of the site is a simple BootStrap setup. Very minimal styling went int
 ### JavaScript Functionality
 When the page initializes the first piece is the local storage is retrieved and if there is no local storage nothing is displayed. If there are previously visited locations in local storage, not only are they displayed in a list under the search bar, the last searched for location in that list has its weather data displayed. 
 
-When a user inputs a city to search and initiates the search the location is added to the local storage array and the location is sent to the Nominatim geocoding API to retrieve that location's latitude and longitudinal coordinates. I was able to setup the API call top access global locations so as to not l;imit the scope of the app. Once the coordinates are retrieved from the geocoded object they are then sent to the OpenWeatherMap API. Once the data comes back the information that is needed is appended to its respective HTML elements. It is at this time that the five-day forecast cards are created dynamically via the jQuery `cone()` method and they are loaded with their respective data. I choose to let jQuery do the work here vs. using HTML to not only keep the HTML cleaner but to allow the number of days forecasted to be easily scaled up by just editing the for loop. Not only is basic weather data pulled into the dashboard, but their icons are as well. This gives the user a better visual reading of what the weather is. Also, the UV index is color-coded depending on the danger scale. 
+When a user inputs a city to search and initiates the search the location is added to the local storage array and the location is sent to the Nominatim geocoding API to retrieve that location's latitude and longitudinal coordinates. I was able to setup the API call top access global locations so as to not l;imit the scope of the app. Once the coordinates are retrieved from the geocoded object they are then sent to the OpenWeatherMap API. Once the data comes back the information that is needed is appended to its respective HTML elements. It is at this time that the five-day forecast cards are created dynamically via the jQuery `clone()` method and they are loaded with their respective data. I choose to let jQuery do the work here vs. using HTML to not only keep the HTML cleaner but to allow the number of days forecasted to be easily scaled up by just editing the for loop. Not only is basic weather data pulled into the dashboard, but their icons are as well. This gives the user a better visual reading of what the weather is. Also, the UV index is color-coded depending on the danger scale. 
 
 Once there are saved locations in the previously searched for list, they are all active buttons. Not actual button elements but clicking on a location name with re-initiate the `callAPIs()` function and re-display all of that info. 
 
@@ -34,29 +34,20 @@ Lastly, a button was added to allow the user to clear their search history. This
 
 ## Screenshots
 
-<!-- <summary><strong>Work Day Planner</strong></summary>
+<summary><strong>Weather Dashboard</strong></summary>
 <br>
 
 
-![workday planner day add entries](./assets/images/screenshots/work_day_planner_add.gif?raw=true)
+![weather dashboard functionality](./assets/images/screenshots/weather_dashboard.gif?raw=true)
 <br>
-_add entries_
-<br>
-
-![workday planner clear schedule](./assets/images/screenshots/work_day_planner_clear.gif?raw=true)
-<br>
-_clear schedule_
+_weather dashboard functionality_
 <br>
 
-![workday planner hour change](./assets/images/screenshots/work_day_planner_hour_change.gif?raw=true)
+![weather dashboard mobile](./assets/images/screenshots/weather_dashboard_mobile.jpg?raw=true)
 <br>
-_hour change_
+_weather dashboard mobile aspect ratio_
 <br>
 
-![workday planner day change](./assets/images/screenshots/work_day_planner_day_change.gif?raw=true)
-<br>
-_day change_
-<br> -->
 
 ---
 

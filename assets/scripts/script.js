@@ -13,7 +13,7 @@ $(document).ready(function (){
     //*** API calls ***//
     //-----------------//
     //Function to call the APIs & append elements/data to the DOM. PositionStack is called to get the locales lat and long coords. They are then used in OpenWeather's API to get weather data.//
-    let callAPI = ($locale) => {
+    const callAPI = ($locale) => {
         //Nominatim API
         let mapURL = `https://nominatim.openstreetmap.org/search?q=${$locale}&format=json&addressdetails=1&limit=1`
         $.ajax({
@@ -101,10 +101,9 @@ $(document).ready(function (){
         });
     }
     //Re-search for a saved locales
-    let reSearch = () => { 
+    const reSearch = () => { 
         $('#searched-locale li').click(function(){
             $locale = $(this).text();
-
             callAPI($locale);
         });
     }

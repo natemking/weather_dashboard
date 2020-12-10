@@ -33,8 +33,8 @@
                 <p class="mb-0">Search for a city:</p>
                 <!-- Input for locale to search Input & button-->
                 <section id="locale-search" class="input-group mb-3">
-                    <!-- Input  only  letters and spaces allowed as characters-->
-                    <input onkeypress="return /[a-z_ ]/i.test(event.key)" id="locale-input" type="text"
+                    <!-- Input  only  letters, spaces & allowed as characters-->
+                    <input onkeypress="return /[a-z_ ,]/i.test(event.key)" id="locale-input" type="text"
                         class="form-control" aria-label="locale-search" aria-describedby="locale-search">
                     <!-- Search button -->
                     <button id="search-btn" class="btn btn-info" type="button">

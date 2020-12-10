@@ -12,7 +12,6 @@ body{
   padding: 0;
 }
 
-
 body {
     font-family: 'Montserrat', sans-serif;
 }
@@ -35,7 +34,10 @@ body {
 
 #locale {
   font-size: calc(0.9em + 1vw);
-  border-bottom: rgb(255, 255, 255) 1px;
+  width: 98%;
+  border-bottom: 1px solid rgb(105,105,105);
+  margin-left:auto; 
+  margin-right:0;
 }
 
 .list-group-item {

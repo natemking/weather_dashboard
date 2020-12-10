@@ -1,5 +1,5 @@
 $(document).ready(function (){
-    
+   
     //Get searched locale data from local stor
     let getLocale = JSON.parse(localStorage.getItem('searched-locale'));
         if (getLocale === null){
@@ -100,6 +100,12 @@ $(document).ready(function (){
             });
         });
     }
+    
+    //On page load displays the last searched for locale
+    if (getLocale.length !== 0){
+    callAPI(getLocale[getLocale.length-1]);
+    }
+
     //Re-search for a saved locales
     const reSearch = () => { 
         $('#searched-locale li').click(function(){

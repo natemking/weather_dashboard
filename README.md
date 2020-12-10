@@ -60,7 +60,7 @@ _day change_
 
 * [day.js](https://day.js.org/)
 
-* [GeoCod API from PositionStack](https://positionstack.com/)
+* [GeoCod API from Nominatim](https://nominatim.org/)
 
 * [Weather API from OpenWeatherMap](https://openweathermap.org/)
 
@@ -71,5 +71,6 @@ https://stackoverflow.com/questions/19508183/how-to-force-input-to-only-allow-al
 
 * [Converting from unix time] (https://www.codegrepper.com/code-examples/delphi/jquery+convert+unix+timestamp+to+date)
 
-* [Display OpenWeather Icon](https://stackoverflow.com/questions/44177417/how-to-display-openweathermap-weather-icon)
+* [Check if obj has key in an if/else statement](https://stackoverflow.com/questions/455338/how-do-i-check-if-an-object-has-a-key-in-javascript)
+
 * -->

@@ -20,7 +20,6 @@ $(document).ready(function (){
             url: mapURL,
             method: 'GET'
         }).then(function(map){
-            console.log(map);
             //Gets lat and long data from Position Stack API pull
             let lat = (map[0].lat);
             let lon = (map[0].lon);
@@ -30,9 +29,12 @@ $(document).ready(function (){
             url: weatherURL,
             method: 'GET'
             }).then(function(res){
-    
-                //Write Location to jumbotron heading
-                $('#locale').html(`<img src=http://openweathermap.org/img/wn/${res.current.weather[0].icon}@2x.png>${map[0].address.city}, ${map[0].address.state}`);
+                //Write Location to jumbotron heading. If/else to allow for just state searches as well as cities
+                if ('city' in map[0].address){
+                    $('#locale').html(`<img src=http://openweathermap.org/img/wn/${res.current.weather[0].icon}@2x.png>${map[0].address.city}, ${map[0].address.state}`);
+                }else{
+                    $('#locale').html(`<img src=http://openweathermap.org/img/wn/${res.current.weather[0].icon}@2x.png>${map[0].address.state}, ${map[0].address.country}`);
+                }
                 //Write temp to jumbotron body
                 $('#temp').text(`Temp: ${res.current.temp} \u00B0F`);
                 //Write humidity to jumbotron body
@@ -102,7 +104,7 @@ $(document).ready(function (){
     let reSearch = () => { 
         $('#searched-locale li').click(function(){
             $locale = $(this).text();
-            console.log($locale);
+
             callAPI($locale);
         });
     }

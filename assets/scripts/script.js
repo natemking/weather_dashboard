@@ -10,104 +10,109 @@ $(document).ready(function (){
     $('<li>').addClass('list-group-item').text(getLocale[i]).appendTo('#searched-locale');  
    }
 
-
     //*** API calls ***//
     //-----------------//
-    //PositionStack is called to get the locales lat and long coords. They are then used in OpenWeather's API to get weather data. 
+    //Function to call the APIs & append elements/data to the DOM. PositionStack is called to get the locales lat and long coords. They are then used in OpenWeather's API to get weather data.//
     let callAPI = ($locale) => {
         console.log('i hate' + $locale)
-    //PositionStack API
-    mapURL =`http://api.positionstack.com/v1/forward?access_key=96c3c43382905355dcc4f168fc3b027f&query=${$locale}`
-
-    $.ajax({
-        url: mapURL,
-        method: 'GET'
-    }).then(function(map){
-        
-        //Gets lat and long data from Position Stack API pull
-        let lat = (map.data[0].latitude);
-        let lon = (map.data[0].longitude);
-    
-        //OpenWeatherMap API 
-        weatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=b10aa733a604bec365209fb6e0c6574c`;
+        //PositionStack API
+        mapURL =`https://api.positionstack.com/v1/forward?access_key=96c3c43382905355dcc4f168fc3b027f&query=${$locale}`
         $.ajax({
-        url: weatherURL,
-        method: 'GET'
-        }).then(function(res){
-            console.log(res); 
-            
-            //Write Location to jumbotron heading
-            $('#locale').html(`<img src=http://openweathermap.org/img/wn/${res.current.weather[0].icon}@2x.png>${map.data[0].label}`);
-            //Write temp to jumbotron body
-            $('#temp').text(`Temp: ${res.current.temp} \u00B0F`);
-            //Write humidity to jumbotron body
-            $('#humidity').text(`Humidity: ${res.current.humidity}\u0025`);
-            $('#feels-like').text(`Feels Like: ${res.current.feels_like} \u00B0F`);
-            $('#wind-speed').text(`Wind Speed: ${res.current.wind_speed} MPH`);
-            $('#uv-index').html(`UV Index: <span id="uv-num">${res.current.uvi}</span>`);
+            url: mapURL,
+            method: 'GET'
+        }).then(function(map){
+            //Gets lat and long data from Position Stack API pull
+            let lat = (map.data[0].latitude);
+            let lon = (map.data[0].longitude);
 
-            if ($('#uv-num').val() < 7){
-                $('#uv-num').css('background-color', 'green')
-            }else{
-                $('#uv-num').css('background-color', 'red')
-            }
+            //OpenWeatherMap API 
+            weatherURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=b10aa733a604bec365209fb6e0c6574c`;
+            $.ajax({
+            url: weatherURL,
+            method: 'GET'
+            }).then(function(res){
+                console.log(res); 
 
-            
-            //*** Create 5 day forecast cards ***//
-            const dealCards = () =>{
-                
-                //Create the card clone
-                const $clone = $('.card-template').clone();
-                //For loop to create all 5 cards for forecast
-                for(let i = 1; i < 6; i++){
-                    //create the clone for the lop
-                    const $copy = $clone.clone();
-                    //set the id for all the cards
-                    $copy.attr('id', `card-${i}`);
-                    //Append the clones to the container
-                    $($copy).appendTo('#card-deck');
-                    $('<h5>').attr('id', `card-date-${i}`).appendTo(`#card-${i}`);
-                    $('<h6>').attr('id', `card-icon-${i}`).appendTo(`#card-${i}`);
-                    $('<p>').attr('id', `card-temp-${i}`).appendTo(`#card-${i}`);
-                    $('<p>').attr('id', `card-humidity-${i}`).appendTo(`#card-${i}`);
-                    $copy.css('display', 'block');
-                    $('#five-day-heading').css('display', 'block');
+                //Write Location to jumbotron heading
+                $('#locale').html(`<img src=http://openweathermap.org/img/wn/${res.current.weather[0].icon}@2x.png>${map.data[0].label}`);
+                //Write temp to jumbotron body
+                $('#temp').text(`Temp: ${res.current.temp} \u00B0F`);
+                //Write humidity to jumbotron body
+                $('#humidity').text(`Humidity: ${res.current.humidity}\u0025`);
+                //Write feels like temp to jumbotron body
+                $('#feels-like').text(`Feels Like: ${res.current.feels_like} \u00B0F`);
+                //Write wind speed to the jumbotron body
+                $('#wind-speed').text(`Wind Speed: ${res.current.wind_speed} MPH`);
+                //Write wind speed to the jumbotron body
+                $('#uv-index').html(`UV Index: <span id="uv-num">${res.current.uvi}</span>`);
+                //Colors the UV index dep[ending on its safety
+                if ($('#uv-num').val() < 7){
+                    $('#uv-num').css('background-color', 'green');
+                }else{
+                    $('#uv-num').css('background-color', 'red');
                 }
-            }
-                  
-                let writeCards = () =>{
+
+                //*** Create 5 day forecast cards ***//
+                const dealCards = () =>{
+                    //Create the card clone
+                    const $clone = $('.card-template').clone();
+                    //For loop to create all 5 cards for forecast
                     for(let i = 1; i < 6; i++){
-                    
+                        //create the clone for the lop
+                        const $copy = $clone.clone();
+                        //set the id for all the cards
+                        $copy.attr('id', `card-${i}`);
+                        //Append the clones to the container
+                        $($copy).appendTo('#card-deck');
+                        //Adds h5 element for date
+                        $('<h5>').attr('id', `card-date-${i}`).appendTo(`#card-${i}`);
+                        //Adds h6 element for icon
+                        $('<h6>').attr('id', `card-icon-${i}`).appendTo(`#card-${i}`);
+                        //Add p elements for temp & humidity
+                        $('<p>').attr('id', `card-temp-${i}`).appendTo(`#card-${i}`);
+                        $('<p>').attr('id', `card-humidity-${i}`).appendTo(`#card-${i}`);
+                        //Makes cards and heading visible
+                        $copy.css('display', 'block');
+                        $('#five-day-heading').css('display', 'block');
+                    }
+                }
+
+                //*** Writes the weather info to the cards ***/
+                const writeCards = () =>{
+                    for(let i = 1; i < 6; i++){
+                        //Writes date
                         $(`#card-date-${i}`).text(new Date(res.daily[i].dt * 1000).toLocaleDateString("en-US"));
+                        //Writes weather icon
                         $(`#card-icon-${i}`).html(`<img src=http://openweathermap.org/img/wn/${res.current.weather[0].icon}.png>`);
+                        //Writes temp
                         $(`#card-temp-${i}`).text(`Temp: ${res.daily[i].temp.day} \u00B0F`);
+                        //Writes humidity
                         $(`#card-humidity-${i}`).text(`Humidity: ${res.daily[i].humidity}\u0025`);
                     }
                 }
-              
-           if ($('#card-deck').children().length === 1 ){
-            dealCards();
-            writeCards();
-           }else{
-               writeCards();
-           }      
-            
-        })
-    })
+                //If statement to control the card-cloning  
+                if ($('#card-deck').children().length === 1 ){
+                    dealCards();
+                    writeCards();
+                }else{
+                    writeCards();
+                }     
+            });
+        });
     }
-    //Re-search for a saved locale
+    //Re-search for a saved locales
     let reSearch = () => { 
         $('#searched-locale li').click(function(){
             $locale = $(this).text();
             console.log($locale);
             callAPI($locale);
-        })
+        });
     }
     reSearch();
 
-   //Button click to save searched for locale and access api data 
+   //Event listener to trigger API call, local stor set, and data manipulation to the DOM
     $('#search-btn').on('click', function () {
-        //variable for inputs value
+        //Variable for inputs value
         let $locale = $('#locale-input').val();
         
         if ($locale === ''){
@@ -133,5 +138,5 @@ $(document).ready(function (){
         localStorage.clear();
         $('#searched-locale').empty();
         location.reload();    
-    })
+    });
 });

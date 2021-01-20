@@ -35,8 +35,6 @@ Once there are saved locations in the previously searched for list, they are all
 
 Lastly, a button was added to allow the user to clear their search history. This button deletes what is in their local storage and refreshes the page allowing them to start over and clean up their search list. As with all of my apps until this point, this weather dashboard is mobile responsive. 
 
----
-
 ## Screenshots
 
 <summary><strong>Weather Dashboard</strong></summary>
@@ -53,9 +51,6 @@ _weather dashboard functionality_
 _weather dashboard mobile aspect ratio_
 <br>
 
-
----
-
 ## Credits
 
 * [jQuery](https://jquery.com/)
@@ -71,3 +66,10 @@ _weather dashboard mobile aspect ratio_
 * [Converting from unix time](https://www.codegrepper.com/code-examples/delphi/jquery+convert+unix+timestamp+to+date)
 
 * [Check if obj has key in an if/else statement](https://stackoverflow.com/questions/455338/how-do-i-check-if-an-object-has-a-key-in-javascript)
+
+
+---
+
+GitHub: [@natemking](https://github.com/natemking/)
+
+Email: [natmeking@gmail.com](mailto:natmeking@gmail.com)
